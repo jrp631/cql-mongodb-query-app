@@ -62,10 +62,8 @@ PORT=3000
 - Adjust connection timeouts and pooling in the connection modules if needed.
 
 ## Project structure (high level)
-- /src — server and API logic
-- /client — UI code and assets (e.g., sample.png)
-- /config — connection and environment helpers
-
+- /public - user interface logic
+- server.js - main server entry point
 ## Troubleshooting
 - Verify network access to Cassandra and MongoDB hosts/ports.
 - Check logs for connection errors and authentication failures.
