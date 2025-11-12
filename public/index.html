@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejecutor de Consultas CQL/MongoDB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ejecutor de Consultas</h1>
+        <p class="message">Inserte código CQL/MongoDB</p>
+        
+        <div class="input-section">
+            <textarea id="queryInput" placeholder="Escriba su consulta CQL o script MongoDB aquí..."></textarea>
+            
+            <div class="buttons">
+                <button id="cassandraBtn" class="btn btn-cassandra">Ejecutar en Cassandra</button>
+                <button id="mongodbBtn" class="btn btn-mongodb">Ejecutar en MongoDB</button>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <h3>Resultado:</h3>
+            <div id="result" class="result-container">
+                <p class="placeholder">Los resultados aparecerán aquí...</p>
+            </div>
+        </div>
+
+        <div class="examples">
+            <h3>Ejemplos:</h3>
+            <div class="example-buttons">
+                <button class="example-btn" data-cql="SELECT * FROM system_schema.keyspaces;">CQL: Ver keyspaces</button>
+                <button class="example-btn" data-cql="DESCRIBE TABLES;">CQL: Ver tablas</button>
+                <button class="example-btn" data-mongo="(db) => db.collection('users').find({}).toArray()">Mongo: Buscar usuarios</button>
+                <button class="example-btn" data-mongo="(db) => db.listCollections().toArray()">Mongo: Ver colecciones</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
