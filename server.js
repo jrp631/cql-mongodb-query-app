@@ -20,12 +20,20 @@ const cassandraClient = new cassandra.Client({
 
 // Configuración de MongoDB
 let mongoClient;
-const mongoUrl = process.env.MONGODB_URL || 'mongodb://localhost:27017';
+const mongoConfig = {
+  url: process.env.MONGODB_URL || 'mongodb://localhost:27017',
+  dbName: process.env.MONGODB_DB || 'mi_base_datos',
+  username: process.env.MONGODB_USERNAME || 'tu_usuario',
+  password: process.env.MONGODB_PASSWORD || 'tu_contraseña',
+  authSource: process.env.MONGODB_AUTH_SOURCE || 'admin'
+};
 
+// Construir URL con credenciales
+const mongoUrlWithAuth = `mongodb://${mongoConfig.username}:${mongoConfig.password}@${mongoConfig.url.replace('mongodb://', '')}/${mongoConfig.dbName}?authSource=${mongoConfig.authSource}`;
 // Conectar a MongoDB
 async function connectMongoDB() {
   try {
-    mongoClient = new MongoClient(mongoUrl);
+    mongoClient = new MongoClient(mongoUrlWithAuth);
     await mongoClient.connect();
     console.log('Conectado a MongoDB');
   } catch (error) {
