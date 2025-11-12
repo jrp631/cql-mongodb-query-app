@@ -67,6 +67,7 @@ PORT=3000
 ## Troubleshooting
 - Verify network access to Cassandra and MongoDB hosts/ports.
 - Check logs for connection errors and authentication failures.
+- Chek authentication credentials in the `.env` file.
 
 ## Example UI
 ![Example UI sample](sample.png)
